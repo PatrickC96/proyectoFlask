@@ -1,0 +1,62 @@
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+</head>
+<body>
+    <h1>Administrador</h1>
+    <div>
+        <div class="card-header">
+            <form action="/administrador">
+                <div class="form-group">
+                    <input type="text" name="content" placeholder="ID:" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="content" placeholder="Nombre:" class="form-control" autofocus>
+                </div>  
+                <button type="submit" class="btn btn-primary btn-block">Buscar</button>                    
+            </form>
+        </div>
+    </div>
+    <div id="tabla">
+        <h2>Usuarios</h2>
+        <div class="col-md-7">
+            <table class="table table-striped table-hover table-bordered table-sm bg-white">
+              <thead>
+                <tr>
+                  <td>ID</td>
+                  <td>Nombre</td>
+                  <td>Edad</td>
+                  <td>Fecha</td>
+                </tr>
+              </thead>
+              <tbody>
+                {% for contact in contacts %}
+                <tr>
+                  <td>{{contact.0}}</td>
+                  <td>nombre</td>
+                  <td>22</td>
+                  <td>12/06/2020</td>
+                  <td>
+                    <a href="/edit/{{contact.0}}" class="btn btn-secondary">edit</a>
+                    <a href="/delete/{{contact.0}}" class="btn btn-danger btn-delete">delete</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+    </div>
+    <div>
+        <form action="/">
+            <button type="submit" class="btn btn-primary btn-block">Salir</button>                    
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}
